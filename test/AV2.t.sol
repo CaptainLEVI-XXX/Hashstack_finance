@@ -49,10 +49,6 @@ contract AV2UpgradeTest is Test {
         wrappedProxyV1.upgradeTo(address(implementationV2),dataV2);
         wrappedProxyV2 = AV2(address(proxy));
 
-        // Initialize V2
-        // vm.prank(owner);
-        // wrappedProxyV2.initialize(owner);
-
     
         assertEq(wrappedProxyV2.isSuperAdmin(owner),true,"Not the super Admin");
 

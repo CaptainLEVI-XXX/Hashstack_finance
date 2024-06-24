@@ -57,12 +57,6 @@ contract ATest is Test {
         assertEq(wrappedProxy.owner(), user);
     }
 
-    // function testUnauthorizedSetterCall() public {
-    //     vm.prank(user);
-    //     vm.expectRevert("Ownable: caller is not the owner");
-    //     wrappedProxy.setter(10);
-    // }
-
     function testUpgrade() public {
 
         vm.startPrank(owner);
@@ -71,9 +65,6 @@ contract ATest is Test {
 
         // Upgrade the proxy to the new implementation
         wrappedProxy.upgradeTo(address(newImplementation),bytes(""));
-
-        // // Check that the upgrade was successful
-        // assertEq(ERC1967Proxy(payable(address(proxy))).implementation(), address(newImplementation));
 
         // Verify that the state is preserved
         uint256 value = wrappedProxy.getter();
