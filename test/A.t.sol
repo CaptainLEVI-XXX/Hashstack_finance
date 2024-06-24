@@ -26,7 +26,7 @@ contract ATest is Test {
         vm.label(user, "User");
     }
 
-    function testInitialization() public {
+    function testInitialization() public view {
         assertEq(wrappedProxy.owner(), owner);
     }
 

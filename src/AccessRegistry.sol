@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 import {AccessControlUpgradeable} from "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol";
 
-contract AccessRegistry is AccessControlUpgradeable {
+abstract contract AccessRegistry is AccessControlUpgradeable {
     bytes32 public constant SUPER_ADMIN_ROLE = keccak256("SUPER_ADMIN_ROLE");
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
 
@@ -64,6 +64,4 @@ contract AccessRegistry is AccessControlUpgradeable {
     function isAdmin(address account) public view returns (bool) {
         return hasRole(ADMIN_ROLE, account);
     }
-
-    function transferSUperAdminOwnerShip(){}
 }

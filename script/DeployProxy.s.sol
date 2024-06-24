@@ -24,7 +24,6 @@ contract DeployProxy is Script {
 
         // Deploy the proxy with the implementation address and initializer data
         ERC1967Proxy proxy = new ERC1967Proxy(address(implementation), data);
-        wrappedProxyV1 = A(address(proxy));
 
         vm.stopBroadcast();
 

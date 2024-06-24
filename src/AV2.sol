@@ -10,14 +10,12 @@ contract AV2 is A, AccessRegistry {
     constructor() {
         _disableInitializers();
     }
-
     function init(address initialSuperAdmin) public virtual override{
         AccessRegistry.init(initialSuperAdmin);
     }
 
-    function transferSuperOwnership(address newSuperAdmin) public onlyRole(SUPER_ADMIN_ROLE) {
+    function transferSuperOwnership(address newSuperAdmin) external onlyRole(SUPER_ADMIN_ROLE) {
         transferOwnership(newSuperAdmin);
     }
-
     function _authorizeUpgrade(address newImplementation) internal override onlyRole(SUPER_ADMIN_ROLE) {}
 }
