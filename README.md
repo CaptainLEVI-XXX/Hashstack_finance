@@ -64,3 +64,5 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+const A_PROXY_ABI = proxyabi;
+const A_PROXY_ADDRESS = proxyAddress;
